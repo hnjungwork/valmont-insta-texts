@@ -3,161 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>발몽 텍스트 복사</title>
+    <title>발몽 텍스트 복사 도구</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
             max-width: 800px;
             margin: 0 auto;
+            background-color: white;
             padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
         h1 {
-            color: #4CAF50;
+            color: #333;
             text-align: center;
+            margin-bottom: 30px;
         }
-        .text-box {
-            border: 2px solid #ddd;
-            border-radius: 8px;
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
             padding: 15px;
-            margin-bottom: 20px;
             background-color: #f9f9f9;
-            white-space: pre-line;
         }
-        .copy-btn {
-            background-color: #4CAF50;
+        h2 {
+            margin-top: 0;
+            color: #444;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: vertical;
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        button {
+            /* 팬톤 8300 C (메탈릭 그레이 그린) 적용 */
+            background-color: #8A9A90;
             color: white;
             border: none;
             padding: 10px 15px;
-            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 10px 2px;
             cursor: pointer;
-            font-size: 16px;
-            margin-bottom: 30px;
-            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        .copy-btn:hover {
-            background-color: #45a049;
+        button:hover {
+            /* 호버 시 약간 어두운 톤으로 변경 */
+            background-color: #798a80;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        h2 {
-            margin-top: 40px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-            color: #333;
+        .secondary-button {
+            /* 팬톤 5497 C (그레이 그린) 적용 */
+            background-color: #91A3A4;
+        }
+        .secondary-button:hover {
+            /* 호버 시 약간 어두운 톤으로 변경 */
+            background-color: #829394;
+        }
+        .copy-status {
+            color: #8A9A90; /* 메탈릭 그레이 그린 컬러로 상태 메시지 색상 변경 */
+            margin-left: 10px;
+            display: none;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #91A3A4; /* 그레이 그린 컬러로 푸터 텍스트 색상 변경 */
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
-    <h1>발몽 바이탈리티 리추얼 텍스트</h1>
-    
-    <h2>캐러셀 1</h2>
-    <div class="text-box" id="text1">VALMONT 바이탈리티 리추얼💚
+    <div class="container">
+        <h1>발몽 텍스트 복사 도구</h1>
+        
+        <div class="section">
+            <h2>1. 캐러셀 콘텐츠1(제품+모델)</h2>
+            <textarea id="text1">발몽의 새로운 바이탈리티 라인은 노화의 징후에 대항하는 강력한 솔루션을 제공합니다.
 
-발몽 '바이탈리티'로 피부에 새로운 활력을 느껴보세요!
+피부 표면에 눈에 띄는 주름을 감소시키고, 피부 탄력을 회복시키며, 피부 톤을 균일하게 만들어 젊고 건강한 광채를 선사합니다.
 
-ONE FITS ALL PRODUCT – ALL AGE, ALL GENDER, ALL SKIN TYPE
+바이탈리티 라인의 핵심 성분인 Si-DNA는 피부 세포의 활력을 되찾아 주어 더욱 젊고 건강한 피부로 가꾸어 줍니다.</textarea>
+            <button onclick="copyText('text1')">복사하기</button>
+            <span id="status1" class="copy-status">복사됨!</span>
+        </div>
+        
+        <div class="section">
+            <h2>2. 캐러셀 콘텐츠2(바이탈리티칵테일)</h2>
+            <textarea id="text2">바이탈리티 칵테일 마스크는 피부를 즉각적으로 활성화시키는 독특한 제형의 마스크입니다.
 
-✨ Vitality Step-by-Step Ritual ✨
+피부에 영양을 공급하고 수분을 채워주며, 피부 탄력을 증진시켜 주름을 감소시키고 피부 톤을 균일하게 만들어 줍니다.
 
-1 STEP 🌿 VITAL B. SERUM – 리바이탈라이징 페이스 세럼
+단 한 번의 사용으로도 피부가 생기 있고 젊어 보이는 효과를 경험할 수 있습니다.</textarea>
+            <button class="secondary-button" onclick="copyText('text2')">복사하기</button>
+            <span id="status2" class="copy-status">복사됨!</span>
+        </div>
+        
+        <div class="section">
+            <h2>3. 캐러셀 콘텐츠2(제품++성분)</h2>
+            <textarea id="text3">바이탈리티 라인의 핵심 성분 Si-DNA는 스위스의 첨단 기술로 개발된 혁신적인 성분입니다.
 
-2 STEP 👁 VITAL CONTOUR CREAM – 리바이탈라이징 아이 크림
+Si-DNA는 피부 세포의 활력을 되찾아 주어 노화의 징후를 효과적으로 개선하고, 피부 탄력과 광채를 회복시켜 줍니다.
 
-3-1 STEP 💧 VITAL B. FLUID – 지·복합성 피부를 위한 산뜻한 울트라-라이트 텍스처
+발몽의 바이탈리티 라인으로 피부에 새로운 활력을 불어넣어 보세요.</textarea>
+            <button onclick="copyText('text3')">복사하기</button>
+            <span id="status3" class="copy-status">복사됨!</span>
+        </div>
+        
+        <div class="section">
+            <h2>4. 릴스1 (브랜딩)</h2>
+            <textarea id="text4">스위스 셀룰러 코스메틱의 선두주자 발몽이 선보이는 혁신적인 바이탈리티 라인.
 
-3-2 STEP 🌊 VITAL 24HOUR LIGHT – 중·복합성 피부를 위한 촉촉한 멜팅-라이트 텍스처
+30년 이상의 연구 끝에 탄생한 Si-DNA 성분으로 피부 세포의 활력을 되찾아 주어 노화의 징후를 효과적으로 개선합니다.
 
-3-3 STEP 🧴 VITAL REGENERA I RICH – 중·건성 피부를 위한 풍부한 멜팅-리치 텍스처</div>
-    <button class="copy-btn" onclick="copyText('text1')">텍스트 복사</button>
-    
-    <h2>캐러셀 2</h2>
-    <div class="text-box" id="text2">바이탈리티 리추얼💚
+발몽의 바이탈리티 라인으로 피부에 새로운 생명력을 불어넣어 보세요.</textarea>
+            <button class="secondary-button" onclick="copyText('text4')">복사하기</button>
+            <span id="status4" class="copy-status">복사됨!</span>
+        </div>
+        
+        <div class="section">
+            <h2>5. 릴스2 (제품)</h2>
+            <textarea id="text5">발몽의 바이탈리티 라인은 피부 탄력 감소, 주름, 불균일한 피부 톤 등 노화의 징후에 효과적으로 대응합니다.
 
-발몽 '바이탈리티'로 피부에 새로운 활력을 느껴보세요!
+바이탈리티 세럼과 크림은 피부에 즉각적인 활력을 부여하고, 바이탈리티 칵테일 마스크는 특별한 날을 위한 집중 케어를 제공합니다.
 
-ONE FITS ALL PRODUCT – ALL AGE, ALL GENDER, ALL SKIN TYPE
+발몽의 바이탈리티 라인으로 매일 아침 피부에 새로운 활력을 불어넣어 보세요.</textarea>
+            <button onclick="copyText('text5')">복사하기</button>
+            <span id="status5" class="copy-status">복사됨!</span>
+        </div>
+        
+        <div class="section">
+            <h2>6. 릴스3 (Si-DNA)</h2>
+            <textarea id="text6">발몽의 바이탈리티 라인에 담긴 혁신적인 Si-DNA 성분은 피부 세포의 활력을 되찾아 줍니다.
 
-✨ 바이탈리티 칵테일 ✨
+Si-DNA는 피부 세포의 에너지 생성을 촉진하고, 세포 재생을 도와 피부 탄력과 광채를 회복시켜 줍니다.
 
-🔬 실라놀 DNA – 생명력을 회복합니다.
+발몽의 첨단 기술로 개발된 Si-DNA로 더욱 젊고 건강한 피부를 경험해 보세요.</textarea>
+            <button class="secondary-button" onclick="copyText('text6')">복사하기</button>
+            <span id="status6" class="copy-status">복사됨!</span>
+        </div>
+        
+        <div class="section">
+            <h2>7. 캡션(선택사항)</h2>
+            <textarea id="text7">#발몽 #Valmont #바이탈리티 #Vitality #활력 #안티에이징 #브이스파 #Vspa #호텔스파 #HotelSpa #valmontcosmetics #powerupyourskin #Skincare #HotelSpa</textarea>
+            <button onclick="copyText('text7')">복사하기</button>
+            <span id="status7" class="copy-status">복사됨!</span>
+        </div>
+        
+        <footer>
+            <p>© 2025 발몽 텍스트 복사 도구 | 인스타그램 콘텐츠 관리용</p>
+        </footer>
+    </div>
 
-🧬 리포좀 RNA – DNA 능력을 증가시켜줍니다.
-
-🌿 나스트리움 – 활성 산소의 공격을 방어하고 생성을 제한합니다.
-
-🍏 스위스 애플 스템 셀 – 크로노-에이징을 방지합니다.
-
-🌊 푸쿠스 – 영양이 풍부한 환경을 조성합니다</div>
-    <button class="copy-btn" onclick="copyText('text2')">텍스트 복사</button>
-    
-    <h2>캐러셀 3</h2>
-    <div class="text-box" id="text3">바이탈리티 리추얼💚
-
-발몽 '바이탈리티'로 피부에 새로운 활력을 느껴보세요!
-
-✨ 바이탈리티 칵테일 & 주요 성분 ✨
-
-피부를 활력 있고 튼튼하게 가꿔주는 바이탈리티 칵테일과 함께, 각 제품의 특징을 살려주는 성분이 추가로 함유되어 있습니다.
-
-1 STEP 🌿 VITAL B. SERUM – 말로우: 예민하고 민감해진 피부를 빠르게 진정시켜줍니다.
-
-2 STEP 👁 VITAL CONTOUR CREAM – 멘틸 락테이트: 눈가를 상쾌하게 가꾸고 또렷한 인상을 선사합니다.
-
-3-1 STEP 💧 VITAL B. FLUID – 페퍼민트: 피부 자극을 가라앉히고 생기를 더해줍니다.
-
-3-2 STEP 🌸 VITAL 24HOUR LIGHT – 로자 센티폴리아: 피부의 수분 보유 능력을 높여줍니다.
-
-3-3 STEP 🧴 VITAL REGENERA I RICH – 쉐어 버터: 풍부한 영양을 공급하며, 피부 지질막을 보충해줍니다.</div>
-    <button class="copy-btn" onclick="copyText('text3')">텍스트 복사</button>
-    
-    <h2>릴스 1</h2>
-    <div class="text-box" id="text4">바이탈리티 리추얼💚
-
-POWER UP THE SKIN
-생기 있고 건강한 피부를 위한 바이탈리티 리추얼.
-건강함, 화사함, 싱그러움, 촉촉함, 풍만함, 차오름으로 피로의 흔적, 시간의 흔적을 지워보세요.
-
-ONE FITS ALL PRODUCT - ALL AGE, ALL GENDER, ALL SKIN TYPE</div>
-    <button class="copy-btn" onclick="copyText('text4')">텍스트 복사</button>
-    
-    <h2>릴스 2</h2>
-    <div class="text-box" id="text5">바이탈리티 리추얼💚
-
-POWER UP THE SKIN
-생기 있고 건강한 피부를 위한 바이탈리티 리추얼.
-건강함, 화사함, 싱그러움, 촉촉함, 풍만함, 차오름으로 피로의 흔적, 시간의 흔적을 지워보세요.
-
-ONE FITS ALL PRODUCT - ALL AGE, ALL GENDER, ALL SKIN TYPE</div>
-    <button class="copy-btn" onclick="copyText('text5')">텍스트 복사</button>
-    
-    <h2>릴스 3</h2>
-    <div class="text-box" id="text6">바이탈리티 리추얼💚
-
-POWER UP THE SKIN
-
-생기 있고 건강한 피부를 위한 바이탈리티 리추얼.
-건강함, 화사함, 싱그러움, 촉촉함, 풍만함, 차오름으로 피로의 흔적, 시간의 흔적을 지워보세요.
-
-HP DNA: 40년 피부 'REVENERATION 재생'을 위해 사용되어 온 발몽을 대표하는 성분
-SILANOL: 15년 이상의 피부 'RESTRUCTURING 재구조'를 위해 활용된 발몽의 대표 성분
-
-HP DNA + SILANOL = Si DNA : Cell Booster
--ATP 보호: 세포 에너지
--세포 증식: 젊은 세포 증가
--항산화: 세포 보호
--디톡스: 자가포식
--세포 커뮤니케이션: 세포 교환 촉진</div>
-    <button class="copy-btn" onclick="copyText('text6')">텍스트 복사</button>
-    
     <script>
-        function copyText(elementId) {
-            const text = document.getElementById(elementId).innerText;
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    alert('텍스트가 복사되었습니다!');
-                })
-                .catch(err => {
-                    console.error('텍스트 복사 실패:', err);
-                    alert('텍스트 복사에 실패했습니다. 수동으로 복사해주세요.');
-                });
+        function copyText(id) {
+            var textarea = document.getElementById(id);
+            textarea.select();
+            document.execCommand("copy");
+            
+            var statusId = "status" + id.substring(4);
+            var status = document.getElementById(statusId);
+            status.style.display = "inline";
+            
+            setTimeout(function() {
+                status.style.display = "none";
+            }, 2000);
         }
     </script>
 </body>
